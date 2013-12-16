@@ -217,7 +217,6 @@ function create-dbdiffscript([string]$datebase_name, [string]$database_scripts)
     $newScriptName = ((Get-ChildItem $databaseScriptsUpdate -filter "*.sql" | ForEach-Object {[int]$_.Name.Substring(0, 4)} | Sort-Object)[-1] + 1).ToString("0000-") + "$datebase_name" + ".sql.temp"
 
     write-host "Building original database..."
-    copy_files "$databaseScripts\Deploy-Once" "$package_dir\temp\DBCreate\update"
     exec { & $AliaSQLPath Rebuild $databaseServer "$databaseName_Original" "$database_scripts\Scripts"}
     
     write-host "`n`nGenerating the diff script"
