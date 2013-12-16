@@ -54,7 +54,7 @@
   <ItemGroup>
     <Content Include="Readme.txt" />
     <Content Include="scripts\AliaSQL.exe" />
-    <Content Include="scripts\Seed\0001-Start.sql" />
+    <Content Include="scripts\TestData\0001-Start.sql" />
     <Content Include="scripts\Update\0001-AddTestTable.sql" />
   </ItemGroup>
   <ItemGroup>

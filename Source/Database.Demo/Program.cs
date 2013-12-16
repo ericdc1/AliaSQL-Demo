@@ -83,7 +83,7 @@ namespace Database.Demo
             Console.WriteLine(" ----------------------------------------------------------------------------");
             Console.WriteLine(" 1. Rebuild");
             Console.WriteLine(" 2. Update");
-            Console.WriteLine(" 3. Seed");
+            Console.WriteLine(" 3. TestData");
             Console.WriteLine(" 4. Baseline");
             Console.WriteLine(" 5. Exit program");
 
@@ -118,7 +118,7 @@ namespace Database.Demo
         {
             if (selector == 1) return "Rebuild";
             if (selector == 2) return "Update";
-            if (selector == 3) return "Seed";
+            if (selector == 3) return "TestData";
             if (selector == 4) return "Baseline";
             throw new Exception("invalid selector");
         }
