@@ -20,7 +20,7 @@ properties {
 	$package_dir = "$build_dir\Latest"	  
 	$package_file = "$build_dir\" + $projectName + "-" + $version +"_package.zip"
 	$databaseServer = null-coalesce $databaseServer "localhost\sqlexpress"
-	$databaseScripts = "$source_dir\Database"
+	$databaseScripts = "$source_dir\Database.Demo"
 	$databaseName = $projectName
     $SqlPackage = "C:\Program Files (x86)\Microsoft SQL Server\110\DAC\bin\SqlPackage.exe"
 }
