@@ -32,3 +32,4 @@ To run from a build server you can pass parameters into the build_and_package.ba
 ```dos
 build_and_package.bat databaseServer = '.\sqlexpress'; version = '1.1.1' ; build_dir = 'c:\test' ; visualstudioversion = '12.0'
 ```
+Here is a video demo: http://www.youtube.com/watch?v=oLC9MZGBFII
