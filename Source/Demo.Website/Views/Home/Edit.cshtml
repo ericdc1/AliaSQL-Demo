@@ -1,0 +1,55 @@
+﻿@model Demo.Website.ViewModels.TestTable
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+        
+        <span class="label label-primary col-sm-offset-1">Total value must be less than 10</span>
+        <br/><br/>
+        <div class="form-group">
+            @Html.LabelFor(model => model.FullName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FullName)
+                @Html.ValidationMessageFor(model => model.FullName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.value1, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.value1)
+                @Html.ValidationMessageFor(model => model.value1)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.value2, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.value2)
+                @Html.ValidationMessageFor(model => model.value2)
+            </div>
+        </div>
+        
+     
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

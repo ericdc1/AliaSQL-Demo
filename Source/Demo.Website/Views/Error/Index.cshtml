@@ -1,0 +1,31 @@
+﻿@model Demo.Website.Controllers.ErrorController.ErrorInfo
+@{
+    Layout = null;
+}
+<html>
+<head>
+    <title>Error</title>
+</head>
+<body>
+    <div>
+        @switch (Model.StatusCode)
+        {
+            case 404:
+                <h1>404 Error</h1>
+                <h3>The page you are looking for has been moved or does not exist.</h3>
+                <div style=""></div>
+                break;
+            case 500:
+            <h1>500 Error</h1>
+            <h3>An error occurred on this page.</h3>
+            <div style=""></div>
+                break;
+            default:
+            <h1>General Error</h1>
+            <h3>An error occurred on this page.</h3>
+            <div style=""></div>
+                break;
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Demo.Website.ViewModels.TestTable>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Database example</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new {@class="btn btn-default"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.value1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.value2)
+        </th>
+        <th>
+            Calculated Total
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.value1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.value2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CalculatedTotal)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
