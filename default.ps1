@@ -3,6 +3,7 @@ properties {
     $version = null-coalesce $version ("1.0." + (get-date -format "yyyy"))
 
     $fullversion = $version + "." + (get-date -format "MMdd")  
+    #http://stackoverflow.com/questions/10936828/how-do-i-control-which-version-of-an-msbuild-file-is-used-between-net4-and-4-5r
     $visualstudioversion = null-coalesce $visualstudioversion "12.0"
 	$projectConfig = "Release"
 	$base_dir = resolve-path .
