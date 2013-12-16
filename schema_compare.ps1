@@ -10,7 +10,7 @@ $newScriptName = ((Get-ChildItem $databaseScriptsUpdate -filter "*.sql" | ForEac
 
 
 write-host "Building original database..."
-& $AliaSQL Rebuild .\sqlexpress "$databaseName_Original" "C:\Users\Eric\Documents\GitHub\AliaSQL-$databaseName\source\database.$databaseName\Scripts"   
+& $AliaSQL Rebuild .\sqlexpress "$databaseName_Original" "$databaseScripts\Scripts"   
 write-host "`n`nGenerating the diff script"
 #generate the needed .dacpac (we'll delete it later)
 & $SqlPackage /a:Extract /ssn:.\SQLEXPRESS /sdn:$databaseName /tf:$databaseScripts$databaseName.dacpac 
