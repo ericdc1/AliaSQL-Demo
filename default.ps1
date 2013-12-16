@@ -92,7 +92,7 @@ task Package -depends Compile {
     create-dbdeployscript "Update" "$package_dir\database\_Update-Database.bat"
     create-dbdeployscript "Rebuild" "$package_dir\database\_Rebuild-Database.bat"
     create-dbdeployscript "Baseline"  "$package_dir\database\_Baseline-Database.bat"
-    create-dbdeployscript "Seed" "$package_dir\database\_Seed-Database.bat"
+    create-dbdeployscript "TestData" "$package_dir\database\_TestData-Database.bat"
 
     write-host "Zip it up"
 	zip_directory $package_dir $package_file 
