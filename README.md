@@ -26,6 +26,7 @@ Try out AliaSQL using the following scripts:
 * open_solution.bat - opens the .sln file in the source folder
 * run_in_browser.bat - launches the web app in IIS Express
 * default.ps1 - the psake build script
+* schema-compare.ps1 - runs sqlpackage.exe to compare the database scripts against the current sqlexpress database to generate a schema change - script without a dependency on psake
 
 To run from a build server you can pass parameters into the build_and_package.bat like this:
 
