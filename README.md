@@ -14,6 +14,8 @@ This is a simple single table crud app with some contrived business rules so the
 * Microsoft bunding and minification
 * AliaSQL database deployment tool
 * Assumes you have SQL Server 2008 or 2012 Express installed
+* Unit tests with XUnit
+* UI tests with Selenium
 
 Try out AliaSQL using the following scripts:
 
@@ -26,6 +28,7 @@ Try out AliaSQL using the following scripts:
 * open_solution.bat - opens the .sln file in the source folder
 * run_in_browser.bat - launches the web app in IIS Express
 * default.ps1 - the psake build script
+* full-system-tests.bat - compiles, runs unit tests, rebuilds and seeds database, then runs UI tests
 * schema-compare.ps1 - runs sqlpackage.exe to compare the database scripts against the current sqlexpress database to generate a schema change - script without a dependency on psake
 
 To run from a build server you can pass parameters into the build_and_package.bat like this:
