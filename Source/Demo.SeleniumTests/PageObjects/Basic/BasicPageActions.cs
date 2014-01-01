@@ -31,7 +31,7 @@ namespace Demo.SeleniumTests.PageObjects.Basic
             PageFactory.InitElements(Browser.Driver, basicPage);
             basicPage.CreateRecordButton.Click();
 
-            Browser.Wait().Until((d) => d.FindElement(By.Id("FullName")));
+            Browser.Wait().Until(d => d.FindElement(By.Id("FullName")));
             var newName = Browser.Driver.FindElement(By.Id("FullName"));
             newName.Clear();
             newName.SendKeys("Test");
@@ -91,7 +91,7 @@ namespace Demo.SeleniumTests.PageObjects.Basic
             {
                 element = Browser.Driver.FindElement(by);
             }
-            catch (NoSuchElementException ex)
+            catch (NoSuchElementException)
             {
                 element = null;
                 return false;

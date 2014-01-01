@@ -34,9 +34,14 @@ namespace Demo.SeleniumTests.Utilities
             return new ProjectLocation(projectPath);
         }
 
-        private static string GetSolutionFolderPath()
+        public static string GetSolutionFolderPath()
         {
+            //running from visual studio
             var directory = new DirectoryInfo(Environment.CurrentDirectory);
+
+            //running via psake where assemblies are in build/test folder
+            if(directory.Name == "test")
+                directory = new DirectoryInfo(Path.Combine(directory.Parent.Parent.FullName, "source"));
 
             while (directory.GetFiles("*.sln").Length == 0)
             {

@@ -1,6 +1,9 @@
 ﻿//code from http://net.tutsplus.com/tutorials/maintainable-automated-ui-tests/
 //excellent article as well regarding UI Testing
 
+using System;
+using System.IO;
+
 namespace Demo.SeleniumTests.Utilities
 {
     public class Host
@@ -9,7 +12,9 @@ namespace Demo.SeleniumTests.Utilities
         static Host()
         {
             //location of where the project was built
-            Instance.Run("C:\\inetpub\\websites\\AliaSQL-Demo-master\\build\\Latest\\web", 4278);
+            var webprojectpath = Path.Combine( ProjectLocation.GetSolutionFolderPath(), "Demo.Website");
+            //Instance.Run("\\build\\Latest\\web", 4278);
+            Instance.Run(webprojectpath, 4278);
 
         }
     }

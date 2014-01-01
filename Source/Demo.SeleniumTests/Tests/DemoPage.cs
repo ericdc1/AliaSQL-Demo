@@ -7,13 +7,13 @@ namespace Demo.SeleniumTests.Tests
 {
     public class DemoPage
     {
-        private StringBuilder verificationErrors;
+        private StringBuilder _verificationErrors;
         [TestFixtureSetUp]
         public void SetupTest()
         {
             Browser.StartWebDriver().Navigate().Refresh();
             BasicPageActions.GoTo();
-            verificationErrors = new StringBuilder();
+            _verificationErrors = new StringBuilder();
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace Demo.SeleniumTests.Tests
         public void TearDownTest()
         {
             BasicPageActions.StopTests();
-            Assert.AreEqual("", verificationErrors.ToString());
+            Assert.AreEqual("", _verificationErrors.ToString());
         }
 
     }

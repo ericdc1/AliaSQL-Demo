@@ -10,7 +10,9 @@ properties {
 	$source_dir = "$base_dir\source"
 	$webapp_dir = "$source_dir\$projectName.Website" 
 	$unitTestAssembly = "$projectName.UnitTests.dll"
+    $UITestAssembly = "$projectName.SeleniumTests.dll"
 	$xunitPath = "$source_dir\packages\xunit.runners.1.9.2\tools\xunit.console.clr4.exe"
+    $nunitPath = "$source_dir\packages\NUnit.Runners.2.6.3\tools\nunit-console.exe"
 	$AliaSQLPath = "$base_dir\lib\AliaSQL\AliaSQL.exe"
     $unitTest_dir = "$base_dir\source\$projectName.UnitTests"
 	$zipPath = "$base_dir\lib\7zip\7za.exe"
@@ -25,9 +27,9 @@ properties {
     $SqlPackage = "C:\Program Files (x86)\Microsoft SQL Server\110\DAC\bin\SqlPackage.exe"
 }
 
-task default -depends Init, Compile, UpdateDatabase, Test, PopulateTestData
-task ci -depends Init, Compile, UpdateDatabase, Test, Package
-
+task default -depends Init, Compile, UpdateDatabase, PopulateTestData, UnitTest
+task ci -depends Init, Compile, UpdateDatabase, UnitTest, Package
+task fullsystem -depends Init, Compile, RebuildDatabase, PopulateTestData, UnitTest, UITest
 
 task Init {
     #delete the build directories, but leave any artifacts at the root then put it back
@@ -48,10 +50,26 @@ task Compile -depends Init {
     Update-AssemblyInfoFiles ($version.Replace($version.Split('.')[-1], "0") + ".0") #cleans the version's year to something like 3.0.0.0
 }
 
-task Test {
+task UnitTest {
     write-host "Testing $unitTestAssembly"
     copy_all_assemblies_for_test "$test_dir"
-	exec { & $xunitPath $test_dir\$unitTestAssembly /xml $build_dir\UnitTestResult.xml}      
+	exec { & $xunitPath $test_dir\$unitTestAssembly /xml $build_dir\UnitTestResult.xml}  
+
+    # checking so that last exit code is ok else break the build
+    if($LASTEXITCODE -ne 0) {
+        throw "Failed to run unit tests"
+        exit 1
+    }
+}
+
+task UITest {
+    write-host "Testing $UITestAssembly"
+    exec { & $nunitPath $test_dir\$UITestAssembly /nologo /xml=$build_dir\UITesttResult.xml}    
+        # checking so that last exit code is ok else break the build
+    if($LASTEXITCODE -ne 0) {
+        throw "Failed to run UI tests"
+        exit 1
+    }
 }
 
 task GenerateDatabaseDiff {
