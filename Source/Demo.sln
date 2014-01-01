@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.UnitTests", "Demo.Unit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database.Demo", "Database.Demo\Database.Demo.csproj", "{423A127D-3144-438D-B0E7-1BE5A50339CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.SeleniumTests", "Demo.SeleniumTests\Demo.SeleniumTests.csproj", "{FE88CC0E-4091-4277-B2DF-784AB3DAE730}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{423A127D-3144-438D-B0E7-1BE5A50339CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{423A127D-3144-438D-B0E7-1BE5A50339CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{423A127D-3144-438D-B0E7-1BE5A50339CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE88CC0E-4091-4277-B2DF-784AB3DAE730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE88CC0E-4091-4277-B2DF-784AB3DAE730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE88CC0E-4091-4277-B2DF-784AB3DAE730}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE88CC0E-4091-4277-B2DF-784AB3DAE730}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
