@@ -4,7 +4,7 @@ $source_dir = "$base_dir\source"
 $databaseScripts = "$source_dir\Database.Demo\"
 $SqlPackage = "C:\Program Files (x86)\Microsoft SQL Server\110\DAC\bin\SqlPackage.exe"
 $AliaSQL = "$base_dir\lib\AliaSQL\AliaSQL.exe"
-$databaseName_Original = "$datebaseName" + "_Original"
+$databaseName_Original = "$databaseName" + "_Original"
 $databaseScriptsUpdate = "$databaseScripts\Scripts\Update"
 $newScriptName = ((Get-ChildItem $databaseScriptsUpdate -filter "*.sql" | ForEach-Object {[int]$_.Name.Substring(0, 4)} | Sort-Object)[-1] + 1).ToString("0000-") + "$databaseName" + ".sql.temp"
 
