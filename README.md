@@ -13,7 +13,8 @@ This is a simple single table crud app with some contrived business rules so the
 * Bootstrap generic UI
 * Microsoft bunding and minification
 * AliaSQL database deployment tool
-* Assumes you have SQL Server 2008 or 2012 Express installed
+* AliaSQL C# Runner
+* Assumes you have SQL Server 2008, 2012, or 2014 Express installed
 * Unit tests with XUnit
 * UI tests with Selenium
 
