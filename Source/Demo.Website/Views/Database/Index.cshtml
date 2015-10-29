@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Index";
+    List<string> pendingchanges = ViewBag.pendingchanges;
+    List<string> pendingtestdata = ViewBag.pendingtestdata;
+}
+
+<h2>Index</h2>
+
+<h3>Pending Changes - (@pendingchanges.Count)</h3>
+<ul>
+    @foreach (var item in pendingchanges)
+    {
+        <li>@item</li>
+    }
+</ul>
+@if (pendingchanges.Any())
+{
+    @Html.ActionLink("Update Database", "Update", null, new { @class = "btn btn-primary" })
+}
+
+<h3>Pending Test Data - (@pendingtestdata.Count)</h3>
+<ul>
+    @foreach (var item in pendingtestdata)
+    {
+        <li>@item</li>
+    }
+</ul>
+@if (pendingtestdata.Any())
+{
+    @Html.ActionLink("Update Test Data", "UpdateTestData", null, new {@class = "btn btn-primary"})
+}

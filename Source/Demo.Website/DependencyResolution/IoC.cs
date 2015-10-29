@@ -1,3 +1,5 @@
+using StructureMap.Graph;
+
 namespace Demo.Website.DependencyResolution
 {
     using System.Reflection;

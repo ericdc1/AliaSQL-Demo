@@ -1,0 +1,51 @@
+﻿@model System.IO.DirectoryInfo
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Log Viewer</h2>
+<style>
+    .logresult {
+        border: 1px solid gainsboro;
+        height: 600px;
+        overflow-y: auto;
+        display: block;
+        unicode-bidi: embed;
+        font-family: monospace;
+        font-size: smaller;
+        white-space: pre;
+
+    }
+</style>
+<div class="row">
+    <div class="col-md-4">
+        <ul>
+            @foreach (var folder in Model.GetDirectories().OrderBy(i => i.Name))
+            {
+                <li><strong>@folder.Name</strong></li>
+                <ul>
+                    @foreach (var file in folder.GetFiles("*.log").OrderByDescending(i => i.Name).ThenByDescending(i => i.CreationTime))
+                    {
+                        <li>
+                            <a class="getfile" href="#" data-href="@Url.Action("ViewLog", new { foldername = folder.Name,  filename = file.Name })">@file.Name</a>
+                        </li>
+                    }
+                </ul>
+            }
+        </ul>
+    </div>
+    <div class="col-md-8 logresult">
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(".getfile").click(function () {
+            $.get($(this).data("href"), function (data) {
+                $(".logresult").html(data);
+            });
+        });
+    </script>
+}
+
