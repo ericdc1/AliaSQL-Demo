@@ -62,7 +62,7 @@ namespace Demo.Website
             if (customErrorSettings.Mode == CustomErrorsMode.On)
             {
                 var exception = Server.GetLastError();
-               Response.Clear();
+                Response.Clear();
 
                 var routeData = new RouteData();
                 routeData.Values.Add("controller", "Error");

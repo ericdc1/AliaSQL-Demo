@@ -15,6 +15,7 @@ namespace Demo.Website.Controllers
         {
             ViewBag.pendingchanges = new DbUpdater().PendingChanges(ConfigurationManager.ConnectionStrings["DemoConnectionString"].ConnectionString);
             ViewBag.pendingtestdata = new DbUpdater().PendingTestData(ConfigurationManager.ConnectionStrings["DemoConnectionString"].ConnectionString);
+            ViewBag.dbversion = new DbUpdater().DatabaseVersion(ConfigurationManager.ConnectionStrings["DemoConnectionString"].ConnectionString);
             return View();
         }
 
